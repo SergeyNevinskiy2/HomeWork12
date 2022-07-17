@@ -3,7 +3,7 @@
 const currentTime = new Date();
 let userAge = prompt('Введите год рождения?');
 
-if ( userAge === null || userAge === '' || userAge === NaN  ) {
+if ( userAge === null || userAge === '' || userAge === isNaN(+userAge)) {
     alert('Жаль, что вы не захотели ввести свой возраст')
 }else {
     userAge = currentTime.getFullYear() - userAge;
@@ -26,13 +26,17 @@ let userSport = prompt('Какой любимый спорт?');
 if(userSport === null || userSport === '') {
     alert('Жаль, что не ввели любимый спорт')
 
-}else if (sport[userSport.toLocaleLowerCase()] != undefined) {
+}else if (sport[userSport.toLocaleLowerCase()] !== undefined) {
     userSport = `как ${sport[userSport.toLocaleLowerCase()]}`;
 }else {
     userSport = 'Спортсменом'   
 };
 
 switch (userCity.toLocaleLowerCase()) {
+
+case '' :
+    alert('Ты ничего не ввел');
+break;
 
 case 'киев' :
     alert(`Тебе ${userAge}, ты живешь в столице Украины, круто ты хочешь стать ${userSport}`);
